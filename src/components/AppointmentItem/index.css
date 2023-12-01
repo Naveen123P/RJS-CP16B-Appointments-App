@@ -5,6 +5,7 @@
   border: 2px solid #b5b7c4;
   border-radius: 20px;
   padding: 5px;
+  list-style-type: none;
 }
 .title-star-container {
   display: flex;
