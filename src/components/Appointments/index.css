@@ -1,0 +1,40 @@
+/* Write your CSS here */
+.bg-container1 {
+  height: 100vh;
+  background-image: linear-gradient(#fbc7d4, #9796f0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bg-container2 {
+  width: 90%;
+  padding: 50xp;
+  background-color: aliceblue;
+}
+.bg-container3 {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #b5b7c4;
+  padding-bottom: 5px;
+}
+.form-content {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: space-around;
+}
+.submit-button {
+  background-color: #8b5cf6;
+  color: azure;
+  padding: 5px;
+  border-radius: 3px;
+}
+.appointment-img {
+  height: 400px;
+  width: 500px;
+}
+.appointments-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
