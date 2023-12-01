@@ -2,6 +2,7 @@
 import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
 import AppointmentItem from '../AppointmentItem'
+import './index.css'
 
 const initialAppointmentsList = []
 class Appointments extends Component {
@@ -9,11 +10,11 @@ class Appointments extends Component {
     appointmentsList: initialAppointmentsList,
     title: '',
     date: '',
-    isStared: false,
+    isStaredAppointments: false,
   }
 
   addAppointment = () => {
-    const {appointmentsList, title, date} = this.state
+    const {title, date} = this.state
     const newAppointment = {
       id: uuidv4(),
       title,
@@ -40,6 +41,20 @@ class Appointments extends Component {
     }))
   }
 
+  toGetStarredAppointments = () => {
+    const {appointmentsList} = this.state
+    const starAppointmentsList = appointmentsList.filter(
+      each => each.isStared === true,
+    )
+    return starAppointmentsList
+  }
+
+  changeStarredStatus = () => {
+    this.setState(prevState => ({
+      isStaredAppointments: !prevState.isStaredAppointments,
+    }))
+  }
+
   getAppointmentTitle = event => {
     this.setState({title: event.target.value})
   }
@@ -49,7 +64,15 @@ class Appointments extends Component {
   }
 
   render() {
-    const {appointmentsList} = this.state
+    const {appointmentsList, isStaredAppointments} = this.state
+    const starredAppointmentsList = this.toGetStarredAppointments()
+    const displayAppointmentsList = isStaredAppointments
+      ? starredAppointmentsList
+      : appointmentsList
+    const starredButtonStyles = isStaredAppointments
+      ? 'colored-star'
+      : 'normal-star'
+    console.log(appointmentsList)
     return (
       <div className="bg-container1">
         <div className="bg-container2">
@@ -94,16 +117,18 @@ class Appointments extends Component {
           <div>
             <div className="appointment-heading-stared">
               <p className="">Appointments</p>
-              <button
-                type="button"
-                className=""
-                onClick={this.getStaredAppointments}
-              >
-                Stared
-              </button>
+              <div>
+                <button
+                  type="button"
+                  className={starredButtonStyles}
+                  onClick={this.changeStarredStatus}
+                >
+                  Starred
+                </button>
+              </div>
             </div>
             <ul className="appointments-list">
-              {appointmentsList.map(each => (
+              {displayAppointmentsList.map(each => (
                 <AppointmentItem
                   key={each.id}
                   appointmentDetails={each}
