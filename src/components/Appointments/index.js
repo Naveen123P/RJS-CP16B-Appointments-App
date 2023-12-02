@@ -79,7 +79,7 @@ class Appointments extends Component {
           <div className="bg-container3">
             <div className="add-appointments-container">
               <h1 className="">Add Appointments</h1>
-              <form className="form-content" onSubmit={this.enterAppointment}>
+              <form className="form-content" onSubmit={this.addAppointment}>
                 <label htmlFor="title" className="">
                   TITLE
                 </label>
@@ -98,11 +98,7 @@ class Appointments extends Component {
                   onChange={this.getAppointmentDate}
                 />
                 <div>
-                  <button
-                    className="submit-button"
-                    type="submit"
-                    onClick={this.addAppointment}
-                  >
+                  <button className="submit-button" type="submit">
                     Add
                   </button>
                 </div>
