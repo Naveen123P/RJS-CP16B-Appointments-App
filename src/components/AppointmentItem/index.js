@@ -9,7 +9,7 @@ const AppointmentItem = props => {
     toStarOrDeStarAppointment(id)
   }
 
-  const isStarColored = isStared
+  const isStarColored = isStared 
     ? 'https://assets.ccbp.in/frontend/react-js/appointments-app/star-img.png'
     : 'https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png'
 
