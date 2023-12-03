@@ -1,16 +1,26 @@
 /* Write your CSS here */
 .appointment-item {
   height: 80px;
-  width: 200px;
+  width: 250px;
   border: 2px solid #b5b7c4;
   border-radius: 20px;
   padding: 5px;
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .title-star-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 15px;
 }
 .date-tag {
   color: #b5b7c4;
+}
+.star-button {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
 }
