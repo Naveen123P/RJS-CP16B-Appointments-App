@@ -13,8 +13,8 @@ class Appointments extends Component {
     isStaredAppointments: false,
   }
 
-  addAppointment = (event) => {
-    event.praventDefault()
+  addAppointment = event => {
+    event.preventDefault()
     const {title, date} = this.state
     const newAppointment = {
       id: uuidv4(),
@@ -32,14 +32,13 @@ class Appointments extends Component {
   toStarOrDeStarAppointment = id => {
     const {appointmentsList} = this.state
     const filteredAppointment = appointmentsList.filter(each => each.id === id)
+    const filteredAppointment2 = appointmentsList.filter(each => each.id !== id)
     const getIsStaredValue = filteredAppointment[0].isStared
     const filteredObject = {
       ...filteredAppointment[0],
       isStared: !getIsStaredValue,
     }
-    this.setState(prevState => ({
-      appointmentsList: [...prevState.appointmentsList, filteredObject],
-    }))
+    this.setState({appointmentsList: [...filteredAppointment2, filteredObject]})
   }
 
   toGetStarredAppointments = () => {
