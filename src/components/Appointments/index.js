@@ -13,7 +13,8 @@ class Appointments extends Component {
     isStaredAppointments: false,
   }
 
-  addAppointment = () => {
+  addAppointment = (event) => {
+    event.praventDefault()
     const {title, date} = this.state
     const newAppointment = {
       id: uuidv4(),
